@@ -1,11 +1,20 @@
+@import "./Header.css";
 :root {
   --nav-background: #f1efef;
   --select-background: #fc93c1;
   --select-hover-background: #f99878;
+  --font-Inter: "Inter", sans-serif;
+  --font-Bebas: "Bebas Neue", sans-serif;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 nav {
   background-color: var(--nav-background);
+  font-family: var(--font-Inter);
 }
 
 .input--container > form {
@@ -33,9 +42,6 @@ nav {
 }
 
 select[name="movie-type"] {
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: none;
   outline: none;
   background: var(--select-background);
   border-radius: 5px;
