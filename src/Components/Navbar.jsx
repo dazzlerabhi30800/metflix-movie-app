@@ -20,13 +20,21 @@ const Navbar = () => {
       />
       <div
         className={`input--container ${
-          windowSize <= 700 ? "w-full justify-between p-0.5 sticky" : ""
+          windowSize <= 700
+            ? windowSize <= 400
+              ? "flex-col"
+              : "w-full justify-between p-0.5 sticky"
+            : ""
         } flex gap-6 items-center`}
       >
         <form className="flex px-2">
           <input
             className={`bg-transparent ${
-              windowSize <= 700 ? "flex text-sm" : "text-md"
+              windowSize <= 700
+                ? windowSize <= 400
+                  ? "basis-full"
+                  : "flex text-sm"
+                : "text-md"
             } text-black outline-none scale-90  border-b-2 border-indigo-500 placeholder:text-gray-600 transition ease-in-out duration-200 focus:scale-100`}
             type="text"
             id="movieInput"
@@ -55,7 +63,11 @@ const Navbar = () => {
       </div>
       <div
         className={`profile--wrapper ${
-          windowSize <= 700 ? "justify-around gap-0  w-full" : ""
+          windowSize <= 700
+            ? windowSize <= 400
+              ? "hidden"
+              : "justify-around gap-0  w-full"
+            : ""
         } flex px-4 items-center gap-8`}
       >
         <div className="profile--img flex items-center justify-center p-1 rounded-full bg-red-400 transition ease-in duration-400 hover:bg-pink-500">

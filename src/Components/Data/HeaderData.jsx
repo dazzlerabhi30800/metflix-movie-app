@@ -17,10 +17,9 @@ export default [
     Poster:
       "https://m.media-amazon.com/images/M/MV5BMjI0NmFkYzEtNzU2YS00NTg5LWIwYmMtNmQ1MTU0OGJjOTMxXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_SX300.jpg",
     imdbRating: "5.2",
-    imdbVotes: "140,414",
-    imdbID: "tt5433138",
-    Type: "movie",
-    DVD: "30 Jul 2021",
+    imdbLink:
+      "https://www.imdb.com/title/tt5433138/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_f9",
+    trailerLink: "https://www.youtube.com/watch?v=aSiDu3Ywi8E",
   },
   {
     Title: "Nobody",
@@ -45,6 +44,8 @@ export default [
     Type: "movie",
     DVD: "15 Apr 2021",
     Response: "True",
+    imdbLink: "https://www.imdb.com/title/tt7888964/?ref_=fn_al_tt_1",
+    trailerLink: "https://www.youtube.com/watch?v=wZti8QKBWPo",
   },
   {
     Title: "Free Guy",
@@ -69,6 +70,8 @@ export default [
     Type: "movie",
     DVD: "27 Sep 2021",
     Response: "True",
+    imdbLink: "https://www.imdb.com/title/tt6264654/?ref_=fn_al_tt_1",
+    trailerLink: "https://www.youtube.com/watch?v=X2m-08cOAbc",
   },
   {
     Title: "Mortal Kombat",
@@ -92,6 +95,8 @@ export default [
     imdbID: "tt0293429",
     Type: "movie",
     DVD: "23 Apr 2021",
+    imdbLink: "https://www.imdb.com/title/tt0293429/?ref_=fn_al_tt_1",
+    trailerLink: "https://www.youtube.com/watch?v=-BQPKD7eozY",
   },
   {
     Title: "Morbius",
@@ -113,6 +118,8 @@ export default [
     imdbRating: "5.2",
     imdbVotes: "135,198",
     imdbID: "tt5108870",
+    imdbLink: "https://www.imdb.com/title/tt5108870/?ref_=fn_al_tt_1",
+    trailerLink: "https://www.youtube.com/watch?v=oZ6iiRrz1SY",
   },
   {
     Title: "Spider-Man: No Way Home",
@@ -133,6 +140,9 @@ export default [
     imdbID: "tt10872600",
     Type: "movie",
     Response: "True",
+    imdbLink: "https://www.youtube.com/watch?v=JfVOs4VSpmA",
+    trailerLink:
+      "https://www.imdb.com/title/tt10872600/?ref_=nv_sr_srsg_7_tt_8_nm_0_q_spider%2520man",
   },
   {
     Title: "Shang-Chi and the Legend of the Ten Rings",
@@ -152,5 +162,8 @@ export default [
     imdbRating: "7.4",
     imdbID: "tt9376612",
     Type: "movie",
+    imdbLink: "https://www.youtube.com/watch?v=8YjFbMbfXaQ",
+    trailerLink:
+      "https://www.imdb.com/title/tt9376612/?ref_=nv_sr_srsg_1_tt_6_nm_1_q_shang",
   },
 ];

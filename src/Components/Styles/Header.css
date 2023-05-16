@@ -1,13 +1,14 @@
 :root {
-  /* --text-color: #bdbbbb; */
   --text-color: #ffffff;
 }
-h1 {
-  font-size: 3rem;
+
+.swiper {
+  --swiper-navigation-size: 32px;
+  --swiper-navigation-top-offset: 42%;
 }
 
 .movie--slide {
-  height: 70vh;
+  height: 80vh;
 }
 .movie--container {
   height: inherit;
@@ -22,12 +23,16 @@ h1 {
   font-family: var(--font-Inter);
   font-weight: 600;
 }
+
 .movie--container > h1 {
   font-size: clamp(2rem, 3.5vw, 3.5rem);
+  letter-spacing: 1.5px;
+  user-select: none;
 }
 .movie--container > p {
   font-size: clamp(0.8rem, 1.5vw, 1rem);
   font-weight: 600;
+  user-select: none;
 }
 
 @media (width > 700px) {
