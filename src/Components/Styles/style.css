@@ -1,0 +1,62 @@
+:root {
+  --nav-background: #f1efef;
+  --select-background: #fc93c1;
+  --select-hover-background: #f99878;
+}
+
+nav {
+  background-color: var(--nav-background);
+}
+
+.input--container > form {
+  position: relative;
+}
+.input--container > form > label {
+  display: block;
+  position: absolute;
+  left: -15px;
+  font-size: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.input--container > form > label.hide {
+  display: none;
+}
+
+.input--container > form > input:focus ~ label {
+  left: initial;
+  right: 0;
+  font-size: 1rem;
+}
+.input--container > form > input:focus ~ label.hide {
+  display: none;
+}
+
+select[name="movie-type"] {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: none;
+  outline: none;
+  background: var(--select-background);
+  border-radius: 5px;
+  padding: 4px 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+select[name="movie-type"]:focus {
+  background: var(--select-hover-background);
+}
+
+select[name="movie-type"] > option {
+  border: none;
+  outline: none;
+  background: #fff;
+  border-radius: 50px;
+  color: #000;
+}
+
+@media (hover: hover) {
+  select[name="movie-type"] {
+    cursor: pointer;
+  }
+}
