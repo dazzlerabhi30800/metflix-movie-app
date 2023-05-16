@@ -20,6 +20,7 @@ nav {
 .input--container > form {
   position: relative;
 }
+
 .input--container > form > label {
   display: block;
   position: absolute;
@@ -28,6 +29,7 @@ nav {
   top: 50%;
   transform: translateY(-50%);
 }
+
 .input--container > form > label.hide {
   display: none;
 }
@@ -37,6 +39,7 @@ nav {
   right: 0;
   font-size: 1rem;
 }
+
 .input--container > form > input:focus ~ label.hide {
   display: none;
 }

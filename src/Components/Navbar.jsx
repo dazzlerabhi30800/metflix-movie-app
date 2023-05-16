@@ -1,6 +1,6 @@
 import { FaSearch, FaHeart } from "react-icons/fa";
 import "./Styles/style.css";
-import profilePhoto from "../../public/profile-photo.svg";
+import profilePhoto from "/profile-photo.svg";
 import Resize from "../../Resize";
 
 const Navbar = () => {
