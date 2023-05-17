@@ -17,5 +17,5 @@ div > p {
   font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   font-weight: 500;
   user-select: none;
-  width: 100%;
+  width: 95%;
 }

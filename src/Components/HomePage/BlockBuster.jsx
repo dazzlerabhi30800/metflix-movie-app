@@ -14,7 +14,7 @@ const BlockBuster = ({ data }) => {
         spaceBetween={20}
         slidesPerView={
           windowSize <= 700
-            ? windowSize <= 500
+            ? windowSize <= 600
               ? 1
               : 2
             : windowSize >= 1000
