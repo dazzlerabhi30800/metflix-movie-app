@@ -1,11 +1,11 @@
 div > h2 {
-  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   letter-spacing: 2px;
 }
 
 div > h3 {
-  font-size: clamp(1.3rem, 1.8vw, 2rem);
+  font-size: clamp(1.5rem, 1.8vw, 2rem);
   letter-spacing: 1px;
   white-space: nowrap;
 }
@@ -20,6 +20,34 @@ div > h3 {
   user-select: none;
   width: 95%;
   margin: 0 auto;
+}
+
+/* Custom Background */
+.classic {
+  background: rgb(246, 171, 243);
+  background: linear-gradient(
+    111deg,
+    rgba(246, 171, 243, 1) 0%,
+    rgba(250, 189, 153, 1) 53%,
+    rgba(247, 176, 197, 1) 100%
+  );
+}
+.action {
+  background: rgb(246, 243, 171);
+  background: linear-gradient(
+    111deg,
+    rgba(246, 243, 171, 1) 0%,
+    rgba(210, 250, 153, 1) 50%,
+    rgba(176, 247, 213, 1) 100%
+  );
+}
+.korean {
+  background-image: radial-gradient(
+    circle farthest-corner at 11.7% 80.6%,
+    rgba(249, 185, 255, 1) 0%,
+    rgba(177, 172, 255, 1) 49.3%,
+    rgba(98, 203, 255, 1) 89%
+  );
 }
 
 @media (width >= 700px) {

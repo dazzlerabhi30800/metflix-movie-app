@@ -4,6 +4,7 @@ import Stack from "@mui/material/Stack";
 
 const MovieCardComp = ({
   item: { Poster, Genre, Title, Plot, Released, imdbRating },
+  tag,
 }) => {
   return (
     <a
@@ -11,7 +12,7 @@ const MovieCardComp = ({
       className="no-underline select-none"
       href="#"
     >
-      <div className="card shadow-lg  bg-gradient-to-r from-red-300 rounded-md to-pink-300">
+      <div className={`card shadow-lg ${tag}`}>
         <img
           className="rounded-t-md w-full h-72 object-contain"
           src={Poster}
