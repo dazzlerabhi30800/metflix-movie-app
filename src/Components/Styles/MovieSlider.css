@@ -1,0 +1,21 @@
+div > h2 {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+div > h3 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  letter-spacing: 1px;
+}
+
+.card {
+  height: auto;
+}
+
+div > p {
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-weight: 500;
+  user-select: none;
+  width: 100%;
+}

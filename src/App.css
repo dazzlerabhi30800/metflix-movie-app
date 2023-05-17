@@ -4,8 +4,27 @@
   box-sizing: border-box;
 }
 
-#root {
-  background-color: #fff;
+body {
   min-height: 100vh;
-  color: #000;
+  background: rgb(236, 215, 250);
+  background: linear-gradient(
+    111deg,
+    rgba(236, 215, 250, 1) 0%,
+    rgba(245, 211, 211, 1) 50%,
+    rgba(191, 207, 247, 1) 100%
+  );
+  font-family: "Inter", sans-serif;
+}
+
+#root {
+  color: #fff;
+}
+
+div h1,
+div h2,
+div h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  letter-spacing: 1.5px;
+  user-select: none;
 }

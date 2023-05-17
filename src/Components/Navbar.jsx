@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav
       className={`flex ${
         windowSize <= 700 ? "flex-col gap-8" : "flex-row"
-      } justify-between p-2 items-center`}
+      } justify-between p-3 fixed top-0 left-0 right-0 z-40 items-center`}
     >
       <img
         className={`h-10 ${
@@ -35,7 +35,7 @@ const Navbar = () => {
                   ? "basis-full"
                   : "flex text-sm"
                 : "text-md"
-            } text-black outline-none scale-90  border-b-2 border-indigo-500 placeholder:text-gray-600 transition ease-in-out duration-200 focus:scale-100`}
+            } text-white outline-none scale-90  border-b-2 border-purple-300 placeholder:text-gray-200 transition ease-in-out duration-200 focus:scale-100`}
             type="text"
             id="movieInput"
             name="movie-name"

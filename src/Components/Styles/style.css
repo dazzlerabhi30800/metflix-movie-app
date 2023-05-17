@@ -1,4 +1,6 @@
 @import "./Header.css";
+@import "./MovieSlider.css";
+
 :root {
   --nav-background: #f1efef;
   --select-background: #fc93c1;
@@ -13,8 +15,16 @@ body {
 }
 
 nav {
-  background-color: var(--nav-background);
+  /* background-color: var(--nav-background); */
   font-family: var(--font-Inter);
+  background: rgb(77, 108, 244);
+  background: linear-gradient(
+    90deg,
+    rgba(77, 108, 244, 0.5) 0%,
+    rgba(177, 227, 250, 0.5) 50%,
+    rgba(188, 111, 250, 0.5) 100%
+  );
+  backdrop-filter: blur(10px);
 }
 
 .input--container > form {
@@ -48,7 +58,7 @@ select[name="movie-type"] {
   outline: none;
   background: var(--select-background);
   border-radius: 5px;
-  padding: 4px 1rem;
+  padding: 8px 1rem;
   font-weight: 700;
   color: #fff;
 }
