@@ -7,7 +7,7 @@ const HomePage = () => {
     <>
       <Header />
       <main>
-        <BlockBuster data={data} />
+        <BlockBuster title="BlockBuster Movies" data={data} />
       </main>
     </>
   );

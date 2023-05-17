@@ -20,11 +20,20 @@ nav {
   background: rgb(77, 108, 244);
   background: linear-gradient(
     90deg,
+    rgba(77, 108, 244, 1) 0%,
+    rgba(177, 227, 250, 1) 50%,
+    rgba(188, 111, 250, 1) 100%
+  );
+  backdrop-filter: blur(10px);
+}
+nav.glued {
+  background: rgb(77, 108, 244);
+  background: linear-gradient(
+    90deg,
     rgba(77, 108, 244, 0.5) 0%,
     rgba(177, 227, 250, 0.5) 50%,
     rgba(188, 111, 250, 0.5) 100%
   );
-  backdrop-filter: blur(10px);
 }
 
 .input--container > form {
@@ -58,9 +67,10 @@ select[name="movie-type"] {
   outline: none;
   background: var(--select-background);
   border-radius: 5px;
-  padding: 8px 1rem;
+  padding: 4px 8px;
+  font-size: 0.8rem;
   font-weight: 700;
-  color: #fff;
+  color: #000;
 }
 select[name="movie-type"]:focus {
   background: var(--select-hover-background);
@@ -77,5 +87,12 @@ select[name="movie-type"] > option {
 @media (hover: hover) {
   select[name="movie-type"] {
     cursor: pointer;
+  }
+}
+
+@media (width >= 700px) {
+  select[name="movie-type"] {
+    padding: 8px 1rem;
+    font-size: 1rem;
   }
 }

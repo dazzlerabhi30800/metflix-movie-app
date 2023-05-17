@@ -5,23 +5,25 @@ div > h2 {
 }
 
 div > h3 {
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(1.3rem, 1.8vw, 2rem);
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .card {
-  height: auto;
+  height: 550px;
 }
 
-div > p {
+.info > p {
   font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   font-weight: 500;
   user-select: none;
   width: 95%;
+  margin: 0 auto;
 }
 
-@media (width >= 1000px) {
-  div > p {
-    width: 100%;
+@media (width >= 700px) {
+  div > h3 {
+    font-size: 1.6rem;
   }
 }

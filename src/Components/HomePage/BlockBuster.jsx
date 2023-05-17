@@ -3,12 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import MovieCardComp from "./MovieCardComp";
 import Resize from "../../../Resize.ts";
 
-const BlockBuster = ({ data }) => {
+const BlockBuster = ({ data, title }) => {
   const windowSize = Resize().size;
-  console.log(windowSize);
   return (
     <div className="mt-24  mb-12 text-black px-4">
-      <h2 className="my-4">BlockBuster Movies</h2>
+      <h2 className="my-4">{title}</h2>
       <Swiper
         className="flex flex-row"
         spaceBetween={20}

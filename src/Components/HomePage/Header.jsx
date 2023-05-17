@@ -4,9 +4,11 @@ import data from "../Data/HeaderData";
 import Resize from "../../../Resize";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import Scroll from "../../../Scroll";
 
 const Header = () => {
   const windowSize = Resize().size;
+  const scrollTop = Scroll().scroll;
   const styles = {
     backgroundRepeat: "no-repeat",
     backgroundPosition: windowSize <= 700 ? "50% 100%" : "center 50%",
@@ -27,7 +29,7 @@ const Header = () => {
             <SwiperSlide key={index}>
               <div
                 style={{ ...styles, backgroundImage: `url("${item.image}")` }}
-                className="movie--slide"
+                className={`movie--slide ${scrollTop >= 100 ? "full" : ""}`}
               >
                 <div className="movie--container p-6">
                   <h1 className="font-bebas">{item.Title}</h1>
