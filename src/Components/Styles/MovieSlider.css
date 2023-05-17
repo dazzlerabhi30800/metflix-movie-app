@@ -19,3 +19,9 @@ div > p {
   user-select: none;
   width: 95%;
 }
+
+@media (width >= 1000px) {
+  div > p {
+    width: 100%;
+  }
+}
