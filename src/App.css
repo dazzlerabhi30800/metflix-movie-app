@@ -6,12 +6,12 @@
 
 body {
   min-height: 100vh;
-  background: rgb(236, 215, 250);
+  background: rgb(251, 231, 231);
   background: linear-gradient(
-    111deg,
-    rgba(236, 215, 250, 1) 0%,
-    rgba(245, 211, 211, 1) 50%,
-    rgba(191, 207, 247, 1) 100%
+    90deg,
+    rgba(251, 231, 231, 1) 0%,
+    rgba(239, 226, 250, 1) 50%,
+    rgba(246, 224, 230, 1) 100%
   );
   font-family: "Inter", sans-serif;
 }

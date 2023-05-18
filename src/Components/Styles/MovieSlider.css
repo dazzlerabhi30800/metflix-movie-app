@@ -33,12 +33,12 @@ div > h3 {
   );
 }
 .action {
-  background: rgb(246, 243, 171);
+  background: rgb(240, 166, 143);
   background: linear-gradient(
-    111deg,
-    rgba(246, 243, 171, 1) 0%,
-    rgba(210, 250, 153, 1) 50%,
-    rgba(176, 247, 213, 1) 100%
+    90deg,
+    rgba(240, 166, 143, 1) 0%,
+    rgba(241, 223, 172, 1) 50%,
+    rgba(250, 140, 143, 1) 100%
   );
 }
 .korean {

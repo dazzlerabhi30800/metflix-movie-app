@@ -1,0 +1,42 @@
+:root {
+  --font-small: 0.9rem;
+}
+
+.movie--info {
+  padding: 2rem;
+  min-height: 100vh;
+  background: radial-gradient(
+    45.72% 45.72% at 52.4% 54.28%,
+    rgba(255, 185, 163, 0.93) 0%,
+    #fa4e77 100%
+  );
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center center;
+}
+
+.add--info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.poster--img {
+  width: 450px;
+  height: 450px;
+}
+.poster--img > img {
+  width: 100%;
+  object-fit: contain;
+  height: 100%;
+}
+
+.add--info:not(h1) {
+  font-size: var(--font-small);
+}
+
+@media (width >= 700px) {
+  .movie--info {
+    --font-small: 1.1rem;
+  }
+}

@@ -1,16 +1,41 @@
 import React from "react";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import { Link, useNavigate } from "react-router-dom";
 
 const MovieCardComp = ({
-  item: { Poster, Genre, Title, Plot, Released, imdbRating },
+  item: { Poster, Genre, Title, Plot, imdbID, Released, imdbRating },
   tag,
+  setLink,
+  setLoading,
+  setInfoData,
+  link,
 }) => {
+  const navigate = useNavigate();
+  const handleInfo = async (id) => {
+    let newLink;
+    if (id === imdbID) {
+      let response = await fetch(
+        `http://www.omdbapi.com/?i=${id}&apikey=f0c1a9ad`
+      );
+      let data = await response.json();
+      if (data) {
+        let titleJoin = data.Title.toLowerCase().replaceAll(" ", "-");
+        newLink = "/" + titleJoin;
+        navigate(newLink);
+        setLink(newLink);
+        setInfoData(data);
+      }
+    }
+  };
   return (
-    <a
-      onClick={(e) => e.preventDefault()}
+    <Link
+      onClick={(e) => {
+        e.preventDefault();
+        handleInfo(imdbID);
+      }}
       className="no-underline select-none"
-      href="#"
+      to={link}
     >
       <div className={`card shadow-lg ${tag}`}>
         <img
@@ -46,7 +71,7 @@ const MovieCardComp = ({
           </Stack>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 

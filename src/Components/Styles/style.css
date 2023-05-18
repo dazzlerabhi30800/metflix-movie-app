@@ -1,5 +1,6 @@
 @import "./Header.css";
 @import "./MovieSlider.css";
+@import "./Movieinfo.css";
 
 :root {
   --nav-background: #f1efef;
