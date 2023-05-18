@@ -26,7 +26,7 @@ const Navbar = ({
     let response = await fetch(
       `http://www.omdbapi.com/?s=${inputRef.current.value}&apikey=f0c1a9ad&type=${type}`,
       {
-        referrerPolicy: "unsafe_url",
+        referrerPolicy: "unsafe-url",
       }
     );
     let data = await response.json();

@@ -37,10 +37,6 @@ function App() {
     localStorage.setItem("info", JSON.stringify(infoData));
   }, [infoData]);
 
-  useEffect(() => {
-    console.log(searchData);
-  }, [searchData]);
-
   return (
     <InfoContext.Provider value={infoData}>
       <>
