@@ -7,13 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import {
-  Routes,
-  Route,
-  useLocation,
-  Navigate,
-  useNavigate,
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import MovieInfo from "./Components/HomePage/InfoPage/MovieInfo";
 
 let InfoContext = createContext();
@@ -23,8 +17,6 @@ export function UseInfoContext() {
 }
 
 function App() {
-  const location = useLocation();
-  const navigate = useNavigate();
   const [link, setLink] = useState(
     JSON.parse(localStorage.getItem("link")) || null
   );
@@ -32,10 +24,10 @@ function App() {
     JSON.parse(localStorage.getItem("info")) || null
   );
   const [loading, setLoading] = useState(false);
-
-  // useEffect(() => {
-  //   navigate("/");
-  // }, []);
+  const [inputValue, setInputValue] = useState("");
+  const [type, setType] = useState("movie");
+  const [searchData, setSearchData] = useState(null);
+  const [response, setResponse] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("link", JSON.stringify(link));
@@ -45,10 +37,22 @@ function App() {
     localStorage.setItem("info", JSON.stringify(infoData));
   }, [infoData]);
 
+  useEffect(() => {
+    console.log(searchData);
+  }, [searchData]);
+
   return (
     <InfoContext.Provider value={infoData}>
       <>
-        <Navbar />
+        <Navbar
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          type={type}
+          setType={setType}
+          setResponse={setResponse}
+          setLoading={setLoading}
+          setSearchData={setSearchData}
+        />
         <Routes>
           <Route
             exact
@@ -58,7 +62,9 @@ function App() {
                 link={link}
                 setLink={setLink}
                 setInfoData={setInfoData}
-                setLoading={setLoading}
+                loading={loading}
+                searchData={searchData}
+                response={response}
               />
             }
           />

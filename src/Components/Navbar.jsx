@@ -1,12 +1,42 @@
+import { useRef } from "react";
 import { FaSearch, FaHeart } from "react-icons/fa";
 import "./Styles/style.css";
 import profilePhoto from "/profile-photo.svg";
 import Resize from "../../Resize";
 import Scroll from "../../Scroll";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({
+  setInputValue,
+  inputValue,
+  setType,
+  type,
+  setResponse,
+  setLoading,
+  setSearchData,
+}) => {
   const windowSize = Resize().size;
   const scrollTop = Scroll().scroll;
+  const inputRef = useRef();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    let response = await fetch(
+      `http://www.omdbapi.com/?s=${inputRef.current.value}&apikey=f0c1a9ad&type=${type}`
+    );
+    let data = await response.json();
+    setSearchData(data.Search);
+    setInputValue("");
+    if (data.Response) {
+      setTimeout(() => {
+        setResponse(data.Response);
+        setLoading(false);
+      }, 4000);
+    }
+    inputRef.current.value = "";
+  };
   return (
     <nav
       className={`flex ${
@@ -21,13 +51,18 @@ const Navbar = () => {
         }  object-fill`}
         src="/logo.png"
         alt="Metflix"
+        onClick={() => {
+          setSearchData(null);
+          setLoading(false);
+          setResponse(null);
+        }}
       />
       <div
         className={`input--container ${
           windowSize <= 700 ? "justify-center gap-2" : "justify-between"
-        } flex gap-6 items-center`}
+        } flex gap-10 items-center`}
       >
-        <form className="flex px-2">
+        <form className="flex px-2" onSubmit={handleSubmit}>
           <input
             className={`bg-transparent ${
               windowSize <= 700 ? "text-xs w-full" : ""
@@ -35,6 +70,7 @@ const Navbar = () => {
             type="text"
             id="movieInput"
             name="movie-name"
+            ref={inputRef}
             placeholder="Type to search"
           />
           <label
@@ -48,11 +84,12 @@ const Navbar = () => {
         </form>
         <div className="type--wrapper">
           <select
+            onChange={(e) => setType(e.target.value)}
             name="movie-type"
             className={`${windowSize <= 700 ? "text-sm" : "text-md"}`}
           >
             <option value="movie">Movie</option>
-            <option value="movie">Series</option>
+            <option value="series">Series</option>
             <option value="episode">Episode</option>
           </select>
         </div>

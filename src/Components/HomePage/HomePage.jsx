@@ -3,39 +3,53 @@ import Header from "./Header";
 import data from "../Data/MovieData.jsx";
 import ActionData from "../Data/ActionData.jsx";
 import KoreanData from "../Data/KoreanMovieData.jsx";
+import SearchComp from "./SearchComp";
 
-const HomePage = ({ setInfoData, setLoading, link, setLink }) => {
+const HomePage = ({
+  setInfoData,
+  loading,
+  link,
+  setLink,
+  searchData,
+  response,
+}) => {
   return (
     <>
-      <Header />
+      {!searchData && <Header />}
       <main>
-        <BlockBuster
-          setLink={setLink}
-          setInfoData={setInfoData}
-          setLoading={setLoading}
-          link={link}
-          tag="classic"
-          title="Classic BlockBuster Movies"
-          data={data}
-        />
-        <BlockBuster
-          setLink={setLink}
-          setInfoData={setInfoData}
-          setLoading={setLoading}
-          link={link}
-          title="Action Movies"
-          tag="action"
-          data={ActionData}
-        />
-        <BlockBuster
-          setLink={setLink}
-          setInfoData={setInfoData}
-          setLoading={setLoading}
-          link={link}
-          title="Korean Hits"
-          tag="korean"
-          data={KoreanData}
-        />
+        {!searchData && (
+          <BlockBuster
+            setLink={setLink}
+            setInfoData={setInfoData}
+            link={link}
+            tag="classic"
+            title="Classic BlockBuster Movies"
+            data={data}
+          />
+        )}
+        {!searchData && (
+          <BlockBuster
+            setLink={setLink}
+            setInfoData={setInfoData}
+            link={link}
+            title="Action Movies"
+            tag="action"
+            data={ActionData}
+          />
+        )}
+        {!searchData && (
+          <BlockBuster
+            setLink={setLink}
+            setInfoData={setInfoData}
+            link={link}
+            title="Korean Hits"
+            tag="korean"
+            data={KoreanData}
+          />
+        )}
+        {searchData && (
+          <SearchComp loading={loading} data={searchData} response={response} />
+        )}
       </main>
     </>
   );
