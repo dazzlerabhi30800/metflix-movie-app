@@ -24,7 +24,10 @@ const Navbar = ({
     e.preventDefault();
     setLoading(true);
     let response = await fetch(
-      `http://www.omdbapi.com/?s=${inputRef.current.value}&apikey=f0c1a9ad&type=${type}`
+      `http://www.omdbapi.com/?s=${inputRef.current.value}&apikey=f0c1a9ad&type=${type}`,
+      {
+        referrerPolicy: "unsafe_url",
+      }
     );
     let data = await response.json();
     setSearchData(data.Search);
