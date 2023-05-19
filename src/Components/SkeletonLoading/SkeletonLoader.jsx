@@ -14,7 +14,7 @@ const SkeletonLoader = () => {
       : 4;
   return (
     <div className="movie--search">
-      {Array(6)
+      {Array(skeletonCount)
         .fill(1)
         .map((item, index) => {
           return <SkeletonComp key={index} />;
