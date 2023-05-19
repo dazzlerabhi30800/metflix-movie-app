@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MovieSearchComp from "./MovieSearchComp";
 import Spinner from "../../Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { UseApiContext } from "../../App";
 
 const SearchComp = ({
   data,
@@ -18,12 +19,14 @@ const SearchComp = ({
   page,
 }) => {
   const [more, setMore] = useState(true);
+  const apiContext = UseApiContext();
+
   const loadMoreData = async () => {
     const fetchTimeout = setTimeout(async () => {
       let response = await fetch(
         `http://www.omdbapi.com/?s=${
           inputRef.current.value
-        }&apikey=f0c1a9ad&type=${type}&page=${page + 1}`,
+        }&apikey=${apiContext}&type=${type}&page=${page + 1}`,
         {
           referrerPolicy: "unsafe-url",
         }

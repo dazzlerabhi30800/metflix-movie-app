@@ -2,6 +2,7 @@ import React from "react";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import { Link, useNavigate } from "react-router-dom";
+import { UseApiContext } from "../../App";
 
 const MovieCardComp = ({
   item: { Poster, Genre, Title, Plot, imdbID, Released, imdbRating },
@@ -12,11 +13,13 @@ const MovieCardComp = ({
   link,
 }) => {
   const navigate = useNavigate();
+  const apiContext = UseApiContext();
+
   const handleInfo = async (id) => {
     let newLink;
     if (id === imdbID) {
       let response = await fetch(
-        `http://www.omdbapi.com/?i=${id}&apikey=f0c1a9ad`,
+        `http://www.omdbapi.com/?i=${id}&apikey=${apiContext}`,
         {
           referrerPolicy: "unsafe-url",
         }

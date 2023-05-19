@@ -4,6 +4,7 @@ import profilePhoto from "/profile-photo.svg";
 import Resize from "../../Resize";
 import Scroll from "../../Scroll";
 import { useLocation } from "react-router-dom";
+import { UseApiContext } from "../App";
 
 const Navbar = ({
   setType,
@@ -17,6 +18,7 @@ const Navbar = ({
 }) => {
   const windowSize = Resize().size;
   const scrollTop = Scroll().scroll;
+  const apiContext = UseApiContext();
   // const inputRef = useRef();
   const location = useLocation();
 
@@ -24,7 +26,7 @@ const Navbar = ({
     e.preventDefault();
     setLoading(true);
     let response = await fetch(
-      `http://www.omdbapi.com/?s=${inputRef.current.value}&apikey=f0c1a9ad&type=${type}&page=${page}`,
+      `http://www.omdbapi.com/?s=${inputRef.current.value}&apikey=${apiContext}&type=${type}&page=${page}`,
       {
         referrerPolicy: "unsafe-url",
       }
