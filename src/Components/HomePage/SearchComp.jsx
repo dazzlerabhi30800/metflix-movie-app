@@ -18,19 +18,21 @@ const SearchComp = ({
   page,
 }) => {
   const loadMoreData = async () => {
-    // setLoading(true);
-    let response = await fetch(
-      `http://www.omdbapi.com/?s=${
-        inputRef.current.value
-      }&apikey=f0c1a9ad&type=${type}&page=${2}`,
-      {
-        referrerPolicy: "unsafe-url",
-      }
-    );
-    setPage(page + 1);
-    let data = await response.json();
-    setSearchData(searchData.concat(data.Search));
-    setTotalResults(data.totalResults);
+    const fetchTimeout = setTimeout(async () => {
+      let response = await fetch(
+        `http://www.omdbapi.com/?s=${
+          inputRef.current.value
+        }&apikey=f0c1a9ad&type=${type}&page=${page + 1}`,
+        {
+          referrerPolicy: "unsafe-url",
+        }
+      );
+      setPage(page + 1);
+      let data = await response.json();
+      setSearchData(searchData.concat(data.Search));
+      setTotalResults(data.totalResults);
+    }, 2000);
+    return () => clearTimeout(fetchTimeout);
   };
   return (
     <>

@@ -1,6 +1,7 @@
 import React from "react";
 import { UseInfoContext } from "../../../App";
 import { Link } from "react-router-dom";
+import { FaChevronLeft } from "react-icons/fa";
 
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
@@ -16,8 +17,8 @@ const MovieInfo = ({ setInfoData, setLink }) => {
           </div>
           <div className="add--info">
             <h1>{infoContext.Title}</h1>
-            <span>Language</span>
-            <p>{infoContext.Plot}</p>
+            <span>{infoContext.Language}</span>
+            <p className="plot--info">{infoContext.Plot}</p>
             <p className="font-bold">
               Genre :- <span className="font-normal">{infoContext.Genre}</span>
             </p>
@@ -26,12 +27,14 @@ const MovieInfo = ({ setInfoData, setLink }) => {
               <p>{infoContext.Runtime}</p>
             </div>
             <div>
-              <p className="font-bold">
-                Actors <span className="font-normal">{infoContext.Actors}</span>
+              <p className="font-bold mx-auto">
+                Actors :-{" "}
+                <span className="font-normal">{infoContext.Actors}</span>
               </p>
               <p>{infoContext.Director}</p>
             </div>
-            <Stack direction="row" spacing={1}>
+            <Stack className="rating--comp" direction="row" spacing={1}>
+              <span className="font-bold">Rating -</span>
               <Rating
                 name="half-rating-read"
                 defaultValue={infoContext.imdbRating / 2}
@@ -46,21 +49,21 @@ const MovieInfo = ({ setInfoData, setLink }) => {
                 }}
                 readOnly
               />
-              <span className="text-lg font-medium text-red-700">
+              <span className="text-lg font-bold text-rose-600">
                 {infoContext.imdbRating}
               </span>
             </Stack>
             <p>Box office :- {infoContext.BoxOffice}</p>
           </div>
           <Link
-            className="bg-purple-500 text-white py-1 px-4 text-lg rounded-sm transition ease-in duration-300 hover:bg-purple-700"
+            className="bg-purple-500 flex items-center gap-2 font-semibold text-white py-1 px-4 text-lg rounded-sm transition ease-in duration-300 hover:bg-purple-700"
             onClick={() => {
               setLink(null);
               setInfoData(null);
             }}
             to="/"
           >
-            Go Back
+            <FaChevronLeft /> Go Back
           </Link>
         </main>
       )}

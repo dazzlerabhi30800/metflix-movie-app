@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { FaSearch, FaHeart } from "react-icons/fa";
 import "./Styles/style.css";
 import profilePhoto from "/profile-photo.svg";
