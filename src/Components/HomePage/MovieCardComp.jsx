@@ -16,7 +16,10 @@ const MovieCardComp = ({
     let newLink;
     if (id === imdbID) {
       let response = await fetch(
-        `http://www.omdbapi.com/?i=${id}&apikey=f0c1a9ad`
+        `http://www.omdbapi.com/?i=${id}&apikey=f0c1a9ad`,
+        {
+          referrerPolicy: "unsafe-url",
+        }
       );
       let data = await response.json();
       if (data) {

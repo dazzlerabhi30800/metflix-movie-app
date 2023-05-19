@@ -1,16 +1,47 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const MovieSearchComp = ({ item: { Title, Poster, Year, Type } }) => {
+const MovieSearchComp = ({
+  item: { Title, Poster, Year, Type, imdbID },
+  setLink,
+  setInfoData,
+}) => {
+  const navigate = useNavigate();
+
+  const handleInfo = async (id) => {
+    let newLink;
+    if (id === imdbID) {
+      let response = await fetch(
+        `http://www.omdbapi.com/?i=${id}&apikey=f0c1a9ad`,
+        {
+          referrerPolicy: "unsafe-url",
+        }
+      );
+      let data = await response.json();
+      if (data) {
+        let titleJoin = data.Title.toLowerCase().replaceAll(" ", "-");
+        newLink = "/" + titleJoin;
+        navigate(newLink);
+        setLink(newLink);
+        setInfoData(data);
+      }
+    }
+  };
   return (
-    <a
-      onClick={(e) => e.preventDefault()}
+    <Link
+      onClick={(e) => {
+        e.preventDefault();
+        handleInfo(imdbID);
+      }}
       className="no-underline select-none"
       href="#"
     >
       <div className="card shadow-lg">
         <img
-          className="rounded-t-md w-full h-72 object-contain"
-          src={Poster}
+          className={` ${
+            Poster === "N/A" ? "object-cover w-full" : "object-contain w-1/2"
+          } mx-auto h-72`}
+          src={Poster !== "N/A" ? Poster : "./no-bg.jpg"}
           alt={Title}
         />
         <div className="info flex flex-col gap-5 text-center py-6 my-4 px-2">
@@ -23,7 +54,7 @@ const MovieSearchComp = ({ item: { Title, Poster, Year, Type } }) => {
           </span>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 

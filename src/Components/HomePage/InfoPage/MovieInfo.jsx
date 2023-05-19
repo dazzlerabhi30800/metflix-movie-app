@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 
-const MovieInfo = () => {
+const MovieInfo = ({ setInfoData, setLink }) => {
   const infoContext = UseInfoContext();
   return (
     <>
@@ -53,7 +53,11 @@ const MovieInfo = () => {
             <p>Box office :- {infoContext.BoxOffice}</p>
           </div>
           <Link
-            className="bg-purple-500 text-white py-1 px-4 text-lg rounded-sm"
+            className="bg-purple-500 text-white py-1 px-4 text-lg rounded-sm transition ease-in duration-300 hover:bg-purple-700"
+            onClick={() => {
+              setLink(null);
+              setInfoData(null);
+            }}
             to="/"
           >
             Go Back

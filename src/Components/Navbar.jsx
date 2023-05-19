@@ -4,41 +4,44 @@ import "./Styles/style.css";
 import profilePhoto from "/profile-photo.svg";
 import Resize from "../../Resize";
 import Scroll from "../../Scroll";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Navbar = ({
-  setInputValue,
-  inputValue,
   setType,
   type,
   setResponse,
   setLoading,
   setSearchData,
+  setTotalResults,
+  inputRef,
+  page,
 }) => {
   const windowSize = Resize().size;
   const scrollTop = Scroll().scroll;
-  const inputRef = useRef();
-  const navigate = useNavigate();
+  // const inputRef = useRef();
+  const location = useLocation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     let response = await fetch(
-      `http://www.omdbapi.com/?s=${inputRef.current.value}&apikey=f0c1a9ad&type=${type}`,
+      `http://www.omdbapi.com/?s=${inputRef.current.value}&apikey=f0c1a9ad&type=${type}&page=${page}`,
       {
         referrerPolicy: "unsafe-url",
       }
     );
     let data = await response.json();
     setSearchData(data.Search);
-    setInputValue("");
     if (data.Response) {
+      // console.log(data.totalResults);
+      setTotalResults(data.totalResults);
       setTimeout(() => {
         setResponse(data.Response);
         setLoading(false);
       }, 4000);
     }
-    inputRef.current.value = "";
+    // inputRef.current.value = "";
+    inputRef.current.blur();
   };
   return (
     <nav
@@ -51,19 +54,22 @@ const Navbar = ({
       <img
         className={`h-10 ${
           windowSize <= 700 ? "w-16 h-6" : "w-32"
-        }  object-fill`}
+        }  object-fill cursor-pointer`}
         src="/logo.png"
         alt="Metflix"
         onClick={() => {
           setSearchData(null);
           setLoading(false);
           setResponse(null);
+          window.location.reload();
         }}
       />
       <div
         className={`input--container ${
           windowSize <= 700 ? "justify-center gap-2" : "justify-between"
-        } flex gap-10 items-center`}
+        } ${
+          location.pathname === "/" ? "flex" : "hidden"
+        }  gap-10 items-center`}
       >
         <form className="flex px-2" onSubmit={handleSubmit}>
           <input

@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext, useContext } from "react";
+import { useEffect, useState, createContext, useContext, useRef } from "react";
 import "./App.css";
 import HomePage from "./Components/HomePage/HomePage";
 import Navbar from "./Components/Navbar";
@@ -17,6 +17,7 @@ export function UseInfoContext() {
 }
 
 function App() {
+  const inputRef = useRef();
   const [link, setLink] = useState(
     JSON.parse(localStorage.getItem("link")) || null
   );
@@ -28,6 +29,8 @@ function App() {
   const [type, setType] = useState("movie");
   const [searchData, setSearchData] = useState(null);
   const [response, setResponse] = useState(null);
+  const [totalResults, setTotalResults] = useState(0);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     localStorage.setItem("link", JSON.stringify(link));
@@ -48,6 +51,9 @@ function App() {
           setResponse={setResponse}
           setLoading={setLoading}
           setSearchData={setSearchData}
+          setTotalResults={setTotalResults}
+          inputRef={inputRef}
+          page={page}
         />
         <Routes>
           <Route
@@ -61,10 +67,23 @@ function App() {
                 loading={loading}
                 searchData={searchData}
                 response={response}
+                setResponse={setResponse}
+                setLoading={setLoading}
+                setSearchData={setSearchData}
+                totalResults={totalResults}
+                setTotalResults={setTotalResults}
+                inputRef={inputRef}
+                type={type}
+                setPage={setPage}
+                page={page}
               />
             }
           />
-          <Route exact path={link} element={<MovieInfo loading={loading} />} />
+          <Route
+            exact
+            path={link}
+            element={<MovieInfo setLink={setLink} setInfoData={setInfoData} />}
+          />
         </Routes>
       </>
     </InfoContext.Provider>

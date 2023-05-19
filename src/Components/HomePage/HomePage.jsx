@@ -12,6 +12,15 @@ const HomePage = ({
   setLink,
   searchData,
   response,
+  setResponse,
+  setLoading,
+  setSearchData,
+  totalResults,
+  setTotalResults,
+  inputRef,
+  type,
+  setPage,
+  page,
 }) => {
   return (
     <>
@@ -48,7 +57,23 @@ const HomePage = ({
           />
         )}
         {searchData && (
-          <SearchComp loading={loading} data={searchData} response={response} />
+          <SearchComp
+            setLink={setLink}
+            setInfoData={setInfoData}
+            loading={loading}
+            data={searchData}
+            response={response}
+            setResponse={setResponse}
+            setLoading={setLoading}
+            setSearchData={setSearchData}
+            totalResults={totalResults}
+            setTotalResults={setTotalResults}
+            searchData={searchData}
+            inputRef={inputRef}
+            type={type}
+            setPage={setPage}
+            page={page}
+          />
         )}
       </main>
     </>
