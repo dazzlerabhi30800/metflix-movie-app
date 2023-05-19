@@ -4,6 +4,7 @@ import data from "../Data/MovieData.jsx";
 import ActionData from "../Data/ActionData.jsx";
 import KoreanData from "../Data/KoreanMovieData.jsx";
 import SearchComp from "./SearchComp";
+import SkeletonLoader from "../SkeletonLoading/SkeletonLoader";
 
 const HomePage = ({
   setInfoData,
@@ -56,6 +57,7 @@ const HomePage = ({
             data={KoreanData}
           />
         )}
+        {/* {!searchData && <SkeletonLoader />} */}
         {searchData && (
           <SearchComp
             setLink={setLink}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MovieSearchComp from "./MovieSearchComp";
 import Spinner from "../../Spinner";
+import SkeletonLoader from "../SkeletonLoading/SkeletonLoader";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { UseApiContext } from "../../App";
 
@@ -46,13 +47,14 @@ const SearchComp = ({
   };
   return (
     <>
-      {loading && <Spinner />}
+      {/* {loading && <Spinner additionalClass="top" />} */}
+      {loading && <SkeletonLoader />}
       {!loading && (
         <InfiniteScroll
           dataLength={searchData.length}
           next={loadMoreData}
           hasMore={more}
-          loader={<Spinner />}
+          loader={<SkeletonLoader />}
           style={{ overflow: "hidden" }}
         >
           <div className="movie--search text-black">

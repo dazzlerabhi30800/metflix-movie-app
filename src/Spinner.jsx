@@ -1,8 +1,8 @@
 import React from "react";
 
-const Spinner = () => {
+const Spinner = ({ additionalClass }) => {
   return (
-    <div className="lds-roller">
+    <div className={`lds-roller ${additionalClass ? additionalClass : ""}`}>
       <div></div>
       <div></div>
       <div></div>
