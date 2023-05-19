@@ -13,7 +13,15 @@ const MovieInfo = ({ setInfoData, setLink }) => {
       {infoContext && (
         <main className="movie--info text-black">
           <div className="poster--img">
-            <img src={infoContext.Poster} alt="" />
+            <img
+              loading="lazy"
+              src={
+                infoContext.Poster !== "N/A"
+                  ? infoContext.Poster
+                  : "./no-bg.jpg"
+              }
+              alt={infoContext.Title}
+            />
           </div>
           <div className="add--info">
             <h1>{infoContext.Title}</h1>
@@ -23,8 +31,14 @@ const MovieInfo = ({ setInfoData, setLink }) => {
               Genre :- <span className="font-normal">{infoContext.Genre}</span>
             </p>
             <div>
-              <p>{infoContext.Released}</p>
-              <p>{infoContext.Runtime}</p>
+              <p className="font-bold">
+                Released At -{" "}
+                <span className="font-normal">{infoContext.Released}</span>
+              </p>
+              <p className="font-bold">
+                Runtime -{" "}
+                <span className="font-normal">{infoContext.Runtime}</span>
+              </p>
             </div>
             <div>
               <p className="font-bold mx-auto">
@@ -60,6 +74,7 @@ const MovieInfo = ({ setInfoData, setLink }) => {
             onClick={() => {
               setLink(null);
               setInfoData(null);
+              window.scrollTo(0, 0);
             }}
             to="/"
           >

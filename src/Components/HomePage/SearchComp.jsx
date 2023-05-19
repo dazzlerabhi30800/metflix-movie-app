@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MovieSearchComp from "./MovieSearchComp";
 import Spinner from "../../Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -17,6 +17,7 @@ const SearchComp = ({
   setPage,
   page,
 }) => {
+  const [more, setMore] = useState(true);
   const loadMoreData = async () => {
     const fetchTimeout = setTimeout(async () => {
       let response = await fetch(
@@ -27,10 +28,16 @@ const SearchComp = ({
           referrerPolicy: "unsafe-url",
         }
       );
-      setPage(page + 1);
+      setPage((prevState) => prevState + 1);
       let data = await response.json();
-      setSearchData(searchData.concat(data.Search));
-      setTotalResults(data.totalResults);
+      if (data.Response === "True") {
+        setMore(true);
+        setSearchData(searchData.concat(data.Search));
+        setTotalResults(data.totalResults);
+      } else {
+        setMore(false);
+        return;
+      }
     }, 2000);
     return () => clearTimeout(fetchTimeout);
   };
@@ -41,7 +48,7 @@ const SearchComp = ({
         <InfiniteScroll
           dataLength={searchData.length}
           next={loadMoreData}
-          hasMore={searchData.length !== totalResults}
+          hasMore={more}
           loader={<Spinner />}
           style={{ overflow: "hidden" }}
         >

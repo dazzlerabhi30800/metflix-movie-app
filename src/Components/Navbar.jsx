@@ -30,16 +30,18 @@ const Navbar = ({
       }
     );
     let data = await response.json();
-    setSearchData(data.Search);
-    if (data.Response) {
-      // console.log(data.totalResults);
+    if (data.Response === "True") {
+      setSearchData(data.Search);
       setTotalResults(data.totalResults);
       setTimeout(() => {
         setResponse(data.Response);
         setLoading(false);
       }, 4000);
+    } else if (data.Response === "False") {
+      alert(data.Error);
+    } else {
+      return;
     }
-    // inputRef.current.value = "";
     inputRef.current.blur();
   };
   return (
