@@ -5,8 +5,8 @@
 .movie--info {
   padding: 2rem;
   background: radial-gradient(45.72% 45.72% at 52.4% 54.28%,
-      rgba(255, 185, 163, 0.93) 0%,
-      #fa4e77 100%);
+      #f8c9dfed 0%,
+      #dfb6f5 100%);
   display: grid;
   grid-template-columns: repeat(1, 100%);
   place-items: center center;

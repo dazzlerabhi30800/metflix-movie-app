@@ -26,17 +26,17 @@ const MovieInfo = ({ setInfoData, setLink }) => {
           </div>
           <div className="add--info">
             <h1>{infoContext.Title}</h1>
-            <span>{infoContext.Language}</span>
+            <span className="font-bold">Language - {infoContext.Language}</span>
             <p className="plot--info">{infoContext.Plot}</p>
             <p className="font-bold">
               Genre :- <span className="font-normal">{infoContext.Genre}</span>
             </p>
             <div>
-              <p className="font-bold">
+              <p className="font-bold my-1">
                 Released At -{" "}
                 <span className="font-normal">{infoContext.Released}</span>
               </p>
-              <p className="font-bold">
+              <p className="font-bold my-1">
                 Runtime -{" "}
                 <span className="font-normal">{infoContext.Runtime}</span>
               </p>
@@ -68,9 +68,10 @@ const MovieInfo = ({ setInfoData, setLink }) => {
                 {infoContext.imdbRating}
               </span>
             </Stack>
-            <p>
-              Box office :-{" "}
-              {infoContext.BoxOffice ? infoContext.BoxOffice : "N/A"}
+
+            <p className="font-bold">
+              Box Office :-{" "}
+              <span className="font-normal">{infoContext.BoxOffice}</span>
             </p>
           </div>
           <Link

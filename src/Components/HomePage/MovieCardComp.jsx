@@ -67,17 +67,15 @@ const MovieCardComp = ({
               precision={0.5}
               sx={{
                 "& .MuiRating-iconEmpty": {
-                  color: "red",
+                  color: "#000",
                 },
                 "& .MuiRating-iconFilled": {
-                  color: "red",
+                  color: "#000",
                 },
               }}
               readOnly
             />
-            <span className="text-lg font-medium text-red-700">
-              {imdbRating}
-            </span>
+            <span className="text-lg font-bold text-black">{imdbRating}</span>
           </Stack>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Header from "./Header";
 import data from "../Data/MovieData.jsx";
 import ActionData from "../Data/ActionData.jsx";
 import KoreanData from "../Data/KoreanMovieData.jsx";
+import AnimeMovieData from "../Data/AnimeMovieData";
 import AnimeData from "../Data/AnimeData";
 import SearchComp from "./SearchComp";
 import ScrollTop from "./TopScroll";
@@ -66,6 +67,17 @@ const HomePage = ({
             title="Anime Series"
             tag="anime-series"
             data={AnimeData}
+          />
+        )}
+
+        {!searchData && (
+          <BlockBuster
+            setLink={setLink}
+            setInfoData={setInfoData}
+            link={link}
+            title="Anime Movies"
+            tag="anime-movie"
+            data={AnimeMovieData}
           />
         )}
         {searchData && (
