@@ -15,8 +15,12 @@ const MovieCardComp = ({
   const navigate = useNavigate();
   const apiContext = UseApiContext();
 
-  const handleInfo = async (id) => {
+  const handleInfo = async (id, title) => {
     let newLink;
+    let titleJoin = title.toLowerCase().replaceAll(" ", "-");
+    newLink = "/" + titleJoin + `-${id}`;
+    navigate(newLink);
+    setLink(newLink);
     if (id === imdbID) {
       let response = await fetch(
         `http://www.omdbapi.com/?i=${id}&apikey=${apiContext}`,
@@ -26,11 +30,10 @@ const MovieCardComp = ({
       );
       let data = await response.json();
       if (data) {
-        let titleJoin = data.Title.toLowerCase().replaceAll(" ", "-");
-        newLink = "/" + titleJoin;
-        navigate(newLink);
-        setLink(newLink);
-        setInfoData(data);
+        let dataTimeout = setTimeout(() => {
+          setInfoData(data);
+        }, 4000);
+        return () => clearTimeout(dataTimeout);
       }
     }
   };
@@ -38,7 +41,7 @@ const MovieCardComp = ({
     <Link
       onClick={(e) => {
         e.preventDefault();
-        handleInfo(imdbID);
+        handleInfo(imdbID, Title);
       }}
       className="no-underline select-none"
       to={link}
@@ -48,10 +51,11 @@ const MovieCardComp = ({
           className="rounded-t-md w-full h-72 object-contain"
           src={Poster}
           alt={Title}
+          loading="lazy"
         />
         <div className="info flex flex-col gap-3 text-center  py-4 px-2">
           <h3 className="title font-medium">{Title}</h3>
-          <p>{Plot.substring(0, 100)}...</p>
+          <p>{Plot.substring(0, 90)}...</p>
           <span className="text-sm font-semibold">Genre - {Genre}</span>
           <p className="font-medium text-base">
             Released - <span className="font-normal">{Released}</span>

@@ -23,8 +23,10 @@ const Navbar = ({
   const location = useLocation();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    window.scrollTo(0, 0);
     setLoading(true);
+    let timeout;
+    e.preventDefault();
     let response = await fetch(
       `http://www.omdbapi.com/?s=${inputRef.current.value}&apikey=${apiContext}&type=${type}&page=${page}`,
       {
@@ -35,12 +37,14 @@ const Navbar = ({
     if (data.Response === "True") {
       setSearchData(data.Search);
       setTotalResults(data.totalResults);
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         setResponse(data.Response);
         setLoading(false);
-      }, 4000);
+      }, 3000);
     } else if (data.Response === "False") {
       alert(data.Error);
+      setSearchData(null);
+      setLoading(false);
     } else {
       return;
     }
@@ -65,6 +69,7 @@ const Navbar = ({
           setLoading(false);
           setResponse(null);
           window.location.reload();
+          window.scrollTo(0, 0);
         }}
       />
       <div

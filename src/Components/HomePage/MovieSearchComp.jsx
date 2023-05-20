@@ -45,6 +45,7 @@ const MovieSearchComp = ({
           } mx-auto h-72`}
           src={Poster !== "N/A" ? Poster : "./no-bg.jpg"}
           alt={Title}
+          loading="lazy"
         />
         <div className="info flex flex-col gap-5 text-center py-6 my-4 px-2">
           <h3 className="title font-bold">{Title}</h3>

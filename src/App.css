@@ -42,7 +42,7 @@ div h3 {
 }
 
 .lds-roller.top {
-  transform: translate(-50%, 50px);
+  transform: translate(-50%, 100px);
 }
 
 .lds-roller div {

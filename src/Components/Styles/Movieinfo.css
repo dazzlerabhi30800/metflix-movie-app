@@ -4,17 +4,15 @@
 
 .movie--info {
   padding: 2rem;
-  min-height: 100vh;
-  background: radial-gradient(
-    45.72% 45.72% at 52.4% 54.28%,
-    rgba(255, 185, 163, 0.93) 0%,
-    #fa4e77 100%
-  );
+  background: radial-gradient(45.72% 45.72% at 52.4% 54.28%,
+      rgba(255, 185, 163, 0.93) 0%,
+      #fa4e77 100%);
   display: grid;
   grid-template-columns: repeat(1, 100%);
   place-items: center center;
   gap: 1.5rem;
   text-align: center;
+  min-height: 100vh;
 }
 
 .add--info {
@@ -22,19 +20,23 @@
   flex-direction: column;
   gap: 0.8rem;
 }
+
 .plot--info {
   width: 90%;
   margin: 0 auto;
 }
+
 .rating--comp {
   margin: 0 auto;
 }
 
 .poster--img {
-  width: 450px;
-  height: 450px;
+  width: 350px;
+  height: 350px;
+  box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.2);
 }
-.poster--img > img {
+
+.poster--img>img {
   width: 100%;
   object-fit: contain;
   height: 100%;
@@ -44,7 +46,7 @@
   font-size: var(--font-small);
 }
 
-@media (width >= 1000px) {
+@media (width >=1000px) {
   .movie--info {
     --font-small: 1.1rem;
     grid-template-columns: repeat(2, 1fr);
@@ -52,10 +54,16 @@
     text-align: left;
   }
 
+  .poster--img {
+    width: 450px;
+    height: 450px;
+  }
+
   .plot--info {
     width: 100%;
     margin: 0;
   }
+
   .rating--comp {
     margin: 0;
   }

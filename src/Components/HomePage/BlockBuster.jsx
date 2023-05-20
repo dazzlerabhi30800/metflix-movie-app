@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MovieCardComp from "./MovieCardComp";
 import Resize from "../../../Resize.ts";
+import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 
 const BlockBuster = ({
   setLink,
@@ -13,9 +14,24 @@ const BlockBuster = ({
   link,
 }) => {
   const windowSize = Resize().size;
+  const sliderRef = useRef();
   return (
     <div className="mt-24  mb-12 text-black px-4">
-      <h2 className="my-4">{title}</h2>
+      <div className="flex justify-between items-center">
+        <h2 className="my-4">{title}</h2>
+        {windowSize >= 800 && (
+          <div className="flex gap-3 text-3xl">
+            <FaChevronCircleLeft
+              onClick={() => sliderRef.current?.slidePrev()}
+              className="cursor-pointer text-violet-600 transition ease-in duration-300 hover:text-violet-400"
+            />
+            <FaChevronCircleRight
+              onClick={() => sliderRef.current?.slideNext()}
+              className="cursor-pointer text-rose-600 transition ease-in duration-300 hover:text-rose-400"
+            />
+          </div>
+        )}
+      </div>
       <Swiper
         className="flex flex-row"
         spaceBetween={20}
@@ -30,6 +46,9 @@ const BlockBuster = ({
               : 3
             : 2
         }
+        onBeforeInit={(swiper) => {
+          sliderRef.current = swiper;
+        }}
       >
         {data.map((item, index) => {
           return (

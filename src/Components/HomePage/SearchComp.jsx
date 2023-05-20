@@ -42,7 +42,7 @@ const SearchComp = ({
         setMore(false);
         return;
       }
-    }, 2000);
+    }, 3000);
     return () => clearTimeout(fetchTimeout);
   };
   return (

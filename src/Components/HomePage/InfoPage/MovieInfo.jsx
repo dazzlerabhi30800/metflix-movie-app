@@ -5,12 +5,13 @@ import { FaChevronLeft } from "react-icons/fa";
 
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import Spinner from "../../../Spinner";
 
 const MovieInfo = ({ setInfoData, setLink }) => {
   const infoContext = UseInfoContext();
   return (
     <>
-      {infoContext && (
+      {infoContext ? (
         <main className="movie--info text-black">
           <div className="poster--img">
             <img
@@ -67,7 +68,10 @@ const MovieInfo = ({ setInfoData, setLink }) => {
                 {infoContext.imdbRating}
               </span>
             </Stack>
-            <p>Box office :- {infoContext.BoxOffice}</p>
+            <p>
+              Box office :-{" "}
+              {infoContext.BoxOffice ? infoContext.BoxOffice : "N/A"}
+            </p>
           </div>
           <Link
             className="bg-purple-500 flex items-center gap-2 font-semibold text-white py-1 px-4 text-lg rounded-sm transition ease-in duration-300 hover:bg-purple-700"
@@ -81,6 +85,8 @@ const MovieInfo = ({ setInfoData, setLink }) => {
             <FaChevronLeft /> Go Back
           </Link>
         </main>
+      ) : (
+        <Spinner additionalClass="top" />
       )}
     </>
   );

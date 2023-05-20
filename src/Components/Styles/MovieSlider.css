@@ -1,10 +1,10 @@
-div > h2 {
+div>h2 {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   letter-spacing: 2px;
 }
 
-div > h3 {
+div>h3 {
   font-size: clamp(1.5rem, 1.8vw, 2rem);
   letter-spacing: 1px;
   white-space: nowrap;
@@ -12,9 +12,14 @@ div > h3 {
 
 .card {
   height: 550px;
+  transition: 0.3s linear;
 }
 
-.info > p {
+.card:hover {
+  transform: scale(1.05);
+}
+
+.info>p {
   font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   font-weight: 500;
   user-select: none;
@@ -25,33 +30,36 @@ div > h3 {
 /* Custom Background */
 .classic {
   background: rgb(246, 171, 243);
-  background: linear-gradient(
-    111deg,
-    rgba(246, 171, 243, 1) 0%,
-    rgba(250, 189, 153, 1) 53%,
-    rgba(247, 176, 197, 1) 100%
-  );
-}
-.action {
-  background: rgb(240, 166, 143);
-  background: linear-gradient(
-    90deg,
-    rgba(240, 166, 143, 1) 0%,
-    rgba(241, 223, 172, 1) 50%,
-    rgba(250, 140, 143, 1) 100%
-  );
-}
-.korean {
-  background-image: radial-gradient(
-    circle farthest-corner at 11.7% 80.6%,
-    rgba(249, 185, 255, 1) 0%,
-    rgba(177, 172, 255, 1) 49.3%,
-    rgba(98, 203, 255, 1) 89%
-  );
+  background: linear-gradient(111deg,
+      rgba(246, 171, 243, 1) 0%,
+      rgba(250, 189, 153, 1) 53%,
+      rgba(247, 176, 197, 1) 100%);
 }
 
-@media (width >= 700px) {
-  div > h3 {
+.action {
+  background: radial-gradient(circle, #f69ab7, #f375d6);
+}
+
+.korean {
+  background-image: radial-gradient(circle farthest-corner at 11.7% 80.6%,
+      rgba(249, 185, 255, 1) 0%,
+      rgba(177, 172, 255, 1) 49.3%,
+      rgba(98, 203, 255, 1) 89%);
+}
+
+.anime-series {
+  background: linear-gradient(to bottom, #b098f3 30%, #f799e1);
+}
+
+
+@media (hover: hover) {
+  .card:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media (width >=700px) {
+  div>h3 {
     font-size: 1.6rem;
   }
 }

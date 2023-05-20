@@ -3,8 +3,9 @@ import Header from "./Header";
 import data from "../Data/MovieData.jsx";
 import ActionData from "../Data/ActionData.jsx";
 import KoreanData from "../Data/KoreanMovieData.jsx";
+import AnimeData from "../Data/AnimeData";
 import SearchComp from "./SearchComp";
-import SkeletonLoader from "../SkeletonLoading/SkeletonLoader";
+import ScrollTop from "./TopScroll";
 
 const HomePage = ({
   setInfoData,
@@ -57,7 +58,16 @@ const HomePage = ({
             data={KoreanData}
           />
         )}
-        {/* {!searchData && <SkeletonLoader />} */}
+        {!searchData && (
+          <BlockBuster
+            setLink={setLink}
+            setInfoData={setInfoData}
+            link={link}
+            title="Anime Series"
+            tag="anime-series"
+            data={AnimeData}
+          />
+        )}
         {searchData && (
           <SearchComp
             setLink={setLink}
@@ -78,6 +88,7 @@ const HomePage = ({
           />
         )}
       </main>
+      <ScrollTop />
     </>
   );
 };
