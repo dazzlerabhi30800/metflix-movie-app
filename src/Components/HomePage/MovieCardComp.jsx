@@ -46,7 +46,7 @@ const MovieCardComp = ({
       className="no-underline select-none"
       to={link}
     >
-      <div className={`card shadow-lg ${tag}`}>
+      <div className={`card movie--card shadow-lg ${tag}`}>
         <img
           className="rounded-t-md w-full h-72 object-contain"
           src={Poster}
