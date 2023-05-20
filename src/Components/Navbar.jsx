@@ -55,7 +55,9 @@ const Navbar = ({
       className={`flex ${
         windowSize <= 700 ? "justify-between gap-3" : "justify-between"
       }  ${
-        scrollTop >= 100 ? "fixed glued top-0 left-0 right-0" : ""
+        scrollTop >= 100 && location.pathname === "/"
+          ? "fixed glued top-0 left-0 right-0"
+          : ""
       } p-3 z-40 items-center transition ease-in-out duration-200`}
     >
       <img
