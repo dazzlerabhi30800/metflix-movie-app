@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import MovieSearchComp from "./MovieSearchComp";
-import Spinner from "../../Spinner";
 import SkeletonLoader from "../SkeletonLoading/SkeletonLoader";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { UseApiContext } from "../../App";

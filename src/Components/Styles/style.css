@@ -2,6 +2,7 @@
 @import "./MovieSlider.css";
 @import "./Movieinfo.css";
 @import "./MovieSearch.css";
+@import "./DirectorStyle.css";
 
 :root {
   --nav-background: #f1efef;
