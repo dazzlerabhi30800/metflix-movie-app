@@ -8,6 +8,7 @@ import AnimeData from "../Data/AnimeData";
 import SearchComp from "./SearchComp";
 import ScrollTop from "./TopScroll";
 import DirectorComp from "./DirectorComp";
+import ActorComp from "./ActorComp";
 
 const HomePage = ({
   setInfoData,
@@ -82,6 +83,7 @@ const HomePage = ({
           />
         )}
         {!searchData && <DirectorComp />}
+        {!searchData && <ActorComp />}
         {searchData && (
           <SearchComp
             setLink={setLink}

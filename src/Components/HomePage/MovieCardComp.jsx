@@ -20,6 +20,7 @@ const MovieCardComp = ({
     newLink = "/" + titleJoin + `-${id}`;
     navigate(newLink);
     setLink(newLink);
+    window.scrollTo(0, 0);
     if (id === imdbID) {
       let response = await fetch(
         `http://www.omdbapi.com/?i=${id}&apikey=${apiContext}`,

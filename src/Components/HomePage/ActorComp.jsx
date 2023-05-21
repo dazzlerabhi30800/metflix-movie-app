@@ -1,16 +1,16 @@
 import React from "react";
-import data from "../Data/DirectorData";
+import data from "../Data/ActorData";
 
-const DirectorComp = () => {
+const ActorComp = () => {
   return (
-    <div className="director--wrapper text-black">
-      <h4>Directors Chair</h4>
-      <div className="director--container">
+    <div className="actor--wrapper text-black">
+      <h4>Actors Lens</h4>
+      <div className="actor--container">
         {data.map(
           ({ name: name, img: img, color: color, info: link }, index) => {
             return (
               <a
-                className="director--link"
+                className="actor--link"
                 href={link}
                 target="_blank"
                 key={index}
@@ -19,7 +19,7 @@ const DirectorComp = () => {
                   style={{
                     backgroundImage: `url("${img}")`,
                   }}
-                  className="director--comp shadow-lg"
+                  className="actor--comp shadow-lg"
                   key={index}
                 >
                   <h5 className={`${color ? "text-black" : "text-white"}`}>
@@ -35,4 +35,4 @@ const DirectorComp = () => {
   );
 };
 
-export default DirectorComp;
+export default ActorComp;

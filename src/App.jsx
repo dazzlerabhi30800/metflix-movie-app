@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Routes, Route } from "react-router-dom";
 import MovieInfo from "./Components/HomePage/InfoPage/MovieInfo";
+import Footer from "./Components/Footer";
 
 let InfoContext = createContext();
 let ApiContext = createContext();
@@ -99,6 +100,7 @@ function App() {
               }
             />
           </Routes>
+          <Footer />
         </>
       </ApiContext.Provider>
     </InfoContext.Provider>
