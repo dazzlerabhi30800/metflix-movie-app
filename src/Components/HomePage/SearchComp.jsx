@@ -11,7 +11,6 @@ const SearchComp = ({
   setLink,
   setInfoData,
   setSearchData,
-  totalResults,
   setTotalResults,
   searchData,
   inputRef,
@@ -47,7 +46,6 @@ const SearchComp = ({
   };
   return (
     <>
-      {/* {loading && <Spinner additionalClass="top" />} */}
       {loading && <SkeletonLoader />}
       {!loading && (
         <InfiniteScroll
@@ -65,6 +63,7 @@ const SearchComp = ({
                   key={index}
                   setLink={setLink}
                   setInfoData={setInfoData}
+                  loading={loading}
                 />
               );
             })}

@@ -8,7 +8,6 @@ const MovieCardComp = ({
   item: { Poster, Genre, Title, Plot, imdbID, Released, imdbRating },
   tag,
   setLink,
-  setLoading,
   setInfoData,
   link,
 }) => {

@@ -19,13 +19,12 @@ const Navbar = ({
   const windowSize = Resize().size;
   const scrollTop = Scroll().scroll;
   const apiContext = UseApiContext();
-  // const inputRef = useRef();
   const location = useLocation();
 
   const handleSubmit = async (e) => {
+    let fetchTimeout;
     window.scrollTo(0, 0);
     setLoading(true);
-    let timeout;
     e.preventDefault();
     let response = await fetch(
       `http://www.omdbapi.com/?s=${inputRef.current.value}&apikey=${apiContext}&type=${type}&page=${page}`,
@@ -37,10 +36,11 @@ const Navbar = ({
     if (data.Response === "True") {
       setSearchData(data.Search);
       setTotalResults(data.totalResults);
-      timeout = setTimeout(() => {
+      fetchTimeout = setTimeout(() => {
         setResponse(data.Response);
         setLoading(false);
       }, 3000);
+      return () => clearTimeout(fetchTimeout);
     } else if (data.Response === "False") {
       alert(data.Error);
       setSearchData(null);
@@ -58,7 +58,7 @@ const Navbar = ({
         scrollTop >= 100 && location.pathname === "/"
           ? "fixed glued top-0 left-0 right-0"
           : ""
-      } p-3 z-40 items-center transition ease-in-out duration-200`}
+      } p-3 z-40 items-center transition ease-in-out duration-200 shadow-lg`}
     >
       <img
         className={`h-10 ${

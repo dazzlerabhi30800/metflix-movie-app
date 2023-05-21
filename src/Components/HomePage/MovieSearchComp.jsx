@@ -25,7 +25,10 @@ const MovieSearchComp = ({
         newLink = "/" + titleJoin;
         navigate(newLink);
         setLink(newLink);
-        setInfoData(data);
+        let dataTimeout = setTimeout(() => {
+          setInfoData(data);
+        }, 4000);
+        return () => clearTimeout(dataTimeout);
       }
     }
   };
