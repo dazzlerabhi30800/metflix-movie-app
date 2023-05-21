@@ -36,19 +36,20 @@ const Navbar = ({
     if (data.Response === "True") {
       setSearchData(data.Search);
       setTotalResults(data.totalResults);
+      inputRef.current.blur();
       fetchTimeout = setTimeout(() => {
         setResponse(data.Response);
         setLoading(false);
       }, 3000);
       return () => clearTimeout(fetchTimeout);
     } else if (data.Response === "False") {
+      inputRef.current.blur();
       alert(data.Error);
       setSearchData(null);
       setLoading(false);
     } else {
       return;
     }
-    inputRef.current.blur();
   };
   return (
     <nav
