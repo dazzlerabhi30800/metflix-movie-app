@@ -1,15 +1,13 @@
 .movie--search {
   display: grid;
   grid-template-columns: repeat(1, 100%);
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 1rem;
-  /* background: red; */
-  /* place-items: center; */
   min-height: 100vh;
 }
 
 .movie--search .card {
-  background: linear-gradient(to left, #8787f1, #f463c1);
+  background: linear-gradient(to left, #f9a5a5, #f28ecf);
   height: auto;
   width: 100% !important;
 }
@@ -20,7 +18,7 @@
 
 .movie--search .card .info p {
   width: fit-content;
-  background: #f1ab6e;
+  background: #f36760;
   border-radius: 5px;
   font-weight: 600;
   font-size: 0.9rem;
@@ -38,8 +36,8 @@
   .movie--search {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 1rem;
+    gap: 3rem;
+    padding: 2rem 3rem;
   }
 }
 
@@ -47,8 +45,7 @@
   .movie--search {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    padding: 1rem;
+    gap: 3rem;
   }
 }
 
@@ -56,7 +53,6 @@
   .movie--search {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    padding: 1rem;
+    gap: 3rem;
   }
 }

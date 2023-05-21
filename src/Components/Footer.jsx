@@ -6,13 +6,13 @@ const Footer = () => {
     <footer className="text-white">
       <img src="./logo.png" alt="Metflix" />
       <div className="social--icons">
-        <a href="#">
+        <a onClick={(e) => e.preventDefault()} href="#">
           <FaGithub className="icon" color="#cccccc" />
         </a>
-        <a href="#">
+        <a onClick={(e) => e.preventDefault()} href="#">
           <FaLinkedin className="icon" color="#87cff3" />
         </a>
-        <a href="#">
+        <a onClick={(e) => e.preventDefault()} href="#">
           <FaInstagram className="icon" color="#f35edd" />
         </a>
       </div>

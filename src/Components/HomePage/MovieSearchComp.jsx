@@ -22,8 +22,9 @@ const MovieSearchComp = ({
       let data = await response.json();
       if (data) {
         let titleJoin = data.Title.toLowerCase().replaceAll(" ", "-");
-        newLink = "/" + titleJoin;
+        newLink = "/" + titleJoin + `-${id}`;
         navigate(newLink);
+        window.scrollTo(0, 0);
         setLink(newLink);
         let dataTimeout = setTimeout(() => {
           setInfoData(data);
