@@ -33,7 +33,7 @@ const MovieCardComp = ({
       if (data) {
         dataTimeout = setTimeout(() => {
           setInfoData(data);
-        }, 4000);
+        }, 2000);
         return () => clearTimeout(dataTimeout);
       }
     }

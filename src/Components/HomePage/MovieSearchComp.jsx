@@ -28,7 +28,7 @@ const MovieSearchComp = ({
         setLink(newLink);
         let dataTimeout = setTimeout(() => {
           setInfoData(data);
-        }, 4000);
+        }, 2000);
         return () => clearTimeout(dataTimeout);
       }
     }
