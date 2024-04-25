@@ -15,6 +15,7 @@ const MovieCardComp = ({
   const apiContext = UseApiContext();
 
   const handleInfo = async (id, title) => {
+    setInfoData(null);
     let dataTimeout;
     let newLink;
     let titleJoin = title.toLowerCase().replaceAll(" ", "-");
@@ -33,7 +34,7 @@ const MovieCardComp = ({
       if (data) {
         dataTimeout = setTimeout(() => {
           setInfoData(data);
-        }, 4000);
+        }, 1000);
         return () => clearTimeout(dataTimeout);
       }
     }

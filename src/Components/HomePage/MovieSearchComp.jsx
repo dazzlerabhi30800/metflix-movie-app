@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UseApiContext } from "../../App";
+import { FaThemeisle } from "react-icons/fa";
 
 const MovieSearchComp = ({
   item: { Title, Poster, Year, Type, imdbID },
