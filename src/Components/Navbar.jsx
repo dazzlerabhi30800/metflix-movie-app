@@ -3,7 +3,7 @@ import "./Styles/style.css";
 import profilePhoto from "/profile-photo.svg";
 import Resize from "../../Resize";
 import Scroll from "../../Scroll";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { UseApiContext } from "../App";
 
 const Navbar = ({
@@ -60,20 +60,22 @@ const Navbar = ({
           : ""
       } p-3 z-40 items-center transition ease-in-out duration-200 shadow-lg`}
     >
-      <img
-        className={`h-10 ${
-          windowSize <= 700 ? "w-16 h-6" : "w-32"
-        }  object-fill cursor-pointer`}
-        src="/logo.png"
-        alt="Metflix"
-        onClick={() => {
-          setSearchData(null);
-          setLoading(false);
-          setResponse(null);
-          window.location.reload();
-          window.scrollTo(0, 0);
-        }}
-      />
+      <Link to="/">
+        <img
+          className={`h-10 ${
+            windowSize <= 700 ? "w-16 h-6" : "w-32"
+          }  object-fill cursor-pointer`}
+          src="/logo.png"
+          alt="Metflix"
+          onClick={() => {
+            setSearchData(null);
+            setLoading(false);
+            setResponse(null);
+            window.location.reload();
+            window.scrollTo(0, 0);
+          }}
+        />
+      </Link>
       <div
         className={`input--container ${
           windowSize <= 700 ? "justify-center gap-2" : "justify-between"
